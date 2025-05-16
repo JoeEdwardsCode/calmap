@@ -9,7 +9,7 @@ Deploying with serverless is pretty easy:
 sls deploy --stage dev
 ```
 
-Right now there is only stage `dev`.  The output from this command should give you the host so that you can send your requests using `curl <HOST>/ping`.
+Right now there is only stage `dev`.  The output from this command should give you the host so that you can send your requests using `curl <HOST>`.
 
 To tear down deployment:
 ```console
@@ -17,5 +17,5 @@ sls remove --stage dev
 ```
 
 ## API
-The API is in POC phase.  Just a simple `/ping` endpoint.  This is to make sure I can get a functioning go API.
+The API is in POC phase.  All requests to the host are routed to the single handler.
 
