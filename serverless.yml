@@ -1,0 +1,24 @@
+org: joebot
+app: calmap
+service: calmap
+
+provider:
+  name: aws
+  architecture: arm64
+  deploymentMethod: direct
+  runtime: provided.al2
+  region: us-west-2
+
+plugins:
+  - serverless-go-plugin
+
+functions:
+  ping:
+    handler: ./functions/ping
+    events:
+      - httpApi: '*'
+
+custom:
+  go:
+    supportedRuntimes: ["provided.al2"]
+    buildProvidedRuntimeAsBootstrap: true
