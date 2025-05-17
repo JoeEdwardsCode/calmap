@@ -1,0 +1,10 @@
+phases:
+  install:
+    commands:
+      - npm install
+  build:
+    commands:
+      - sls deploy --stage dev --verbose
+artifacts:
+  files:
+    - '**/*'

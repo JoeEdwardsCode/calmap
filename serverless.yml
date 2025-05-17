@@ -7,7 +7,10 @@ provider:
   architecture: arm64
   deploymentMethod: direct
   runtime: provided.al2
-  region: us-west-2
+  region: us-west-1
+
+  deploymentBucket:
+    name: calmap-deploy-${sls:stage}
 
 plugins:
   - serverless-go-plugin
