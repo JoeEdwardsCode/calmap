@@ -1,11 +1,16 @@
 version: 0.2
+env:
+  parameter-store:
+    SERVERLESS_ACCESS_KEY: "/CodeBuild/SERVERLESS_ACCESS_KEY"
 phases:
   install:
+    runtime-versions:
+      nodejs: latest
+      golang: 1.24
     commands:
+      - npm i -g serverless
       - npm install
-  build:
-    commands:
-      - sls deploy --stage dev --verbose
+      - serverless deploy --stage dev --verbose
 artifacts:
   files:
     - '**/*'
