@@ -9,9 +9,13 @@
       "architecture": "arm64",
       "deploymentMethod": "direct",
       "runtime": "provided.al2",
-      "region": "us-west-2",
+      "region": "us-west-1",
+      "deploymentBucket": "calmap-deploy-dev",
       "stage": "dev",
       "versionFunctions": true,
+      "deploymentBucketObject": {
+        "name": "calmap-deploy-dev"
+      },
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
         "Description": "The AWS CloudFormation template for this Serverless application",
@@ -104,8 +108,8 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": "serverless-framework-deployments-us-west-2-d60ee5a3-77e3",
-                "S3Key": "serverless/calmap/dev/1747436494663-2025-05-16T23:01:34.663Z/ping.zip"
+                "S3Bucket": "calmap-deploy-dev",
+                "S3Key": "serverless/calmap/dev/1747439577727-2025-05-16T23:52:57.727Z/ping.zip"
               },
               "Handler": ".bin/ping",
               "Runtime": "provided.al2",
@@ -126,14 +130,14 @@
               "PingLogGroup"
             ]
           },
-          "PingLambdaVersion6LPBYiBNmkuEXcheGkFSZngb4ByEO5UC4pUnRSq2E": {
+          "PingLambdaVersion982lzG1wixzYpdi9ALrM4J4faD9JbPjVaE8sXKcKU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PingLambdaFunction"
               },
-              "CodeSha256": "fNBqJFxfoAeboljXww5uhbkazkzvEgZ3ahnMCzFbmfY="
+              "CodeSha256": "G2ggOuxweAPiPiI2CL0HtuGz0XdVRXsk7ZsJYbv6S1o="
             }
           },
           "HttpApi": {
@@ -231,7 +235,7 @@
         },
         "Outputs": {
           "ServerlessDeploymentBucketName": {
-            "Value": "serverless-framework-deployments-us-west-2-d60ee5a3-77e3",
+            "Value": "calmap-deploy-dev",
             "Export": {
               "Name": "sls-calmap-dev-ServerlessDeploymentBucketName"
             }
@@ -239,7 +243,7 @@
           "PingLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PingLambdaVersion6LPBYiBNmkuEXcheGkFSZngb4ByEO5UC4pUnRSq2E"
+              "Ref": "PingLambdaVersion982lzG1wixzYpdi9ALrM4J4faD9JbPjVaE8sXKcKU"
             },
             "Export": {
               "Name": "sls-calmap-dev-PingLambdaFunctionQualifiedArn"
@@ -313,7 +317,7 @@
         "timeout": 6,
         "runtime": "provided.al2",
         "vpc": {},
-        "versionLogicalId": "PingLambdaVersion6LPBYiBNmkuEXcheGkFSZngb4ByEO5UC4pUnRSq2E"
+        "versionLogicalId": "PingLambdaVersion982lzG1wixzYpdi9ALrM4J4faD9JbPjVaE8sXKcKU"
       }
     },
     "configValidationMode": "warn",
@@ -342,7 +346,7 @@
     "layers": {}
   },
   "package": {
-    "artifactDirectoryName": "serverless/calmap/dev/1747436494663-2025-05-16T23:01:34.663Z",
+    "artifactDirectoryName": "serverless/calmap/dev/1747439577727-2025-05-16T23:52:57.727Z",
     "artifact": ""
   }
 }

@@ -7,7 +7,7 @@ import (
 )
 
 func handler(ctx context.Context) (string, error) {
-	return "pong!", nil
+	return "auto-deployed pong!", nil
 }
 
 func main() {
