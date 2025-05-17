@@ -6,12 +6,21 @@ This project requires the [serverless framework](https://www.serverless.com/) to
 
 Deploying with serverless is pretty easy:
 ```console
+make build
+make zip
 sls deploy --stage dev
 ```
 
-Right now there is only stage `dev`.  The output from this command should give you the host so that you can send your requests using `curl <HOST>`.
+Right now there is only stage `dev`.
 
-To tear down deployment:
+Test the new endpoint:
+```console
+$curl <HOST>/ping
+
+{"ping": "pong!"}
+```
+
+Tear down deployment:
 ```console
 sls remove --stage dev
 ```

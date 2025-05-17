@@ -4,24 +4,30 @@ service: calmap
 
 provider:
   name: aws
-  architecture: arm64
-  deploymentMethod: direct
-  runtime: provided.al2
   region: us-west-1
+  runtime: provided.al2
+  architecture: arm64
 
   deploymentBucket:
     name: calmap-deploy-${sls:stage}
 
-plugins:
-  - serverless-go-plugin
+  httpApi:
+    cors: true
+    name: ${self:service}-${sls:stage}
+
+  logs:
+    httpApi: true
+
+package:
+  individually: true
 
 functions:
   ping:
-    handler: ./functions/ping
+    name: ping-${sls:stage}
+    handler: bootstrap
+    package:
+      artifact: build/lambda/ping.zip
     events:
-      - httpApi: '*'
-
-custom:
-  go:
-    supportedRuntimes: ["provided.al2"]
-    buildProvidedRuntimeAsBootstrap: true
+      - http:
+          path: /ping
+          method: get

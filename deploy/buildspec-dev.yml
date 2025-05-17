@@ -10,6 +10,8 @@ phases:
     commands:
       - npm i -g serverless
       - npm install
+      - make build
+      - make zip
       - serverless deploy --stage dev --verbose
 artifacts:
   files:
